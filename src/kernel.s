@@ -17,11 +17,9 @@ loader:                         ; the loader label (defined as entry point in li
     mov eax, 0xCAFEBABE         ; place the number 0xCAFEBABE in the register eax
     mov esp, kernel_stack + KERNEL_STACK_SIZE
 
-    extern run
-    push dword 3
-    push dword 3
-    push dword 3
-    call run
+    extern kmain
+    call kmain
+    
 .loop:
     jmp .loop      
 
